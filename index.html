@@ -30,6 +30,11 @@
         <div>Processing token request...</div>
         <div class="lds-circle"><div></div></div>
     </div>
+    
+    <div class="heroResult" id="heroResult">
+        <div id="heroClass"></div>
+        <button>OK</button>
+    </div>
 </div>
 
 
@@ -37,13 +42,12 @@
 
     function getRandom(){
         var num=Math.random();
-        console.log(num)
-        if(num < 0.0002) return "SuperLegend"; //probability 0.3
-        else if(num < 0.0052) return "Legend"; //probability 0.3
-        else if(num < 0.0104) return "Epic"; //probability 0.3
-        else if(num < 0.0518) return "SuperRare"; //probability 0.3
-        else if(num < 0.136) return "Rare"; // probability 0.3
-        else return "Common";  //probability 0.1
+        if(num < 0.0002) return "SuperLegend";
+        else if(num < 0.0052) return "Legend";
+        else if(num < 0.0104) return "Epic";
+        else if(num < 0.0518) return "SuperRare";
+        else if(num < 0.136) return "Rare";
+        else return "Common";
     }
     const $mintButton = document.getElementById('mintButton');
     const $mintNumber = document.getElementById('mintNumber');

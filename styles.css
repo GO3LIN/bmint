@@ -44,6 +44,10 @@ body {
     padding-top: 50px;
 }
 
+.heroResult {
+    display: none;
+}
+
 .lds-circle {
     display: inline-block;
     transform: translateZ(1px);
