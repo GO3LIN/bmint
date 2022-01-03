@@ -1,0 +1,75 @@
+body {
+    background: url('bg.jpg');
+}
+
+.mint {
+    width: 340px;
+    margin: auto;
+    position: relative;
+}
+
+.mint .top {
+    background: url('images/mintHeader.png');
+    width: 339px;
+    height: 135px;
+    margin-left: 1px;
+}
+
+.mint .mid {
+    background: url('images/mintBack.png') repeat-y;
+    margin-left: 4px;
+    padding: 10px 20px;
+    width: 293px;
+    text-align: center;
+}
+
+.mint .bot {
+    background: url('images/mintBottom.png');
+    width: 340px;
+    height: 31px;
+}
+
+
+.loadingOverlay {
+    display: none;
+    position: absolute;
+    top: 20px;
+    width: 400px;
+    height: 150px;
+    margin-left: -30px;
+    background: grey;
+    opacity: 0.7;
+    text-align: center;
+    color: #fff;
+    padding-top: 50px;
+}
+
+.lds-circle {
+    display: inline-block;
+    transform: translateZ(1px);
+}
+.lds-circle > div {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    background: #fff;
+    animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes lds-circle {
+    0%, 100% {
+        animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+    }
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(1800deg);
+        animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+    }
+    100% {
+        transform: rotateY(3600deg);
+    }
+}
+  

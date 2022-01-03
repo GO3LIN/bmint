@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>BombMint</title>
+</head>
+<body>
+    
+<div class="mint">
+    <div class="top">
+
+    </div>
+    <div class="mid">
+        <button id="mintButton">10 BC</button>
+        <button id="mintNumber" value="1">x1</button>
+    </div>
+    <div class="bot">
+
+    </div>
+
+    <div class="loadingOverlay" id="mintProcessing">
+        <div>Mint processing...</div>
+        <div class="lds-circle"><div></div></div>
+    </div>
+    
+    <div class="loadingOverlay" id="processToken">
+        <div>Processing token request...</div>
+        <div class="lds-circle"><div></div></div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    function getRandom(){
+        var num=Math.random();
+        console.log(num)
+        if(num < 0.0002) return "SuperLegend"; //probability 0.3
+        else if(num < 0.0052) return "Legend"; //probability 0.3
+        else if(num < 0.0104) return "Epic"; //probability 0.3
+        else if(num < 0.0518) return "SuperRare"; //probability 0.3
+        else if(num < 0.136) return "Rare"; // probability 0.3
+        else return "Common";  //probability 0.1
+    }
+    const $mintButton = document.getElementById('mintButton');
+    const $mintNumber = document.getElementById('mintNumber');
+    const $mintProcessing = document.getElementById('mintProcessing');
+    const $processToken = document.getElementById('processToken');
+
+    const mintNumbers = [1, 5, 10];
+
+    $mintButton.addEventListener('click', e => {
+        const mintNumber = $mintNumber.getAttribute('value');
+        // Run mint animation 
+        $mintProcessing.style.display = 'block';
+        setTimeout(() => {
+            $mintProcessing.style.display = 'none';
+            $processToken.style.display = 'block';
+            setTimeout(() => {
+                $processToken.style.display = 'none';
+                for(let i=0; i<mintNumber; i++){
+                    const mint = getRandom();
+                    alert(mint);
+                }
+            }, 2000)
+        }, 2000)
+
+    })
+
+    $mintNumber.addEventListener('click', e => {
+        const mintNumber = parseInt($mintNumber.getAttribute('value'), 10);
+        const nextIndex = (mintNumbers.indexOf(mintNumber) + 1) % mintNumbers.length;
+        const nextMintNumber = mintNumbers[nextIndex];
+        $mintNumber.setAttribute('value', nextMintNumber);
+        $mintNumber.textContent = `x${nextMintNumber}`;
+        $mintButton.textContent = `${nextMintNumber * 10} BC`;
+    })
+</script>
+
+</body>
+</html>
